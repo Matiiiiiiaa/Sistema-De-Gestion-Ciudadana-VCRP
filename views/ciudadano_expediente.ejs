@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Expediente Ciudadano | Carabineros RP</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body class="exp-body">
+
+<header class="nav-header">
+    <div class="nav-left">
+        <img src="/img/logo.png" class="nav-logo">
+        <span class="nav-role">
+            Ciudadano: <b><%= ciudadano.username %></b>
+        </span>
+    </div>
+
+    <a href="/logout" class="logout-btn">Cerrar Sesión</a>
+</header>
+
+
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="exp-container">
+
+        <h1 class="exp-title">Expediente de <%= ciudadano.username %></h1>
+
+        <!-- AVATAR -->
+        <img class="exp-avatar" 
+             src="https://cdn.discordapp.com/avatars/<%= ciudadano.id %>/<%= ciudadano.avatar %>.png"
+             onerror="this.src='/img/logo.png'">
+
+        <!-- ESTADO GENERAL -->
+        <div class="exp-estado <%= estado.color %>">
+            <%= estado.texto %>
+        </div>
+
+        <!-- SECCIÓN MULTAS -->
+        <h2 class="section-title">Multas</h2>
+
+        <% if (multas.length === 0) { %>
+            <p class="empty">No se registran multas.</p>
+        <% } %>
+
+        <% multas.forEach(m => { %>
+            <div class="exp-card">
+                <p><strong>Carabinero:</strong> <span class="carabinero-name"><%= m.carabinero %></span></p>
+                <p><strong>Nombre:</strong> <%= m.nombre %> <%= m.apellido %></p>
+                <p><strong>RUT:</strong> <%= m.rut %></p>
+                <p><strong>Artículo:</strong> <%= m.articulo %></p>
+                <p><strong>Monto:</strong> $<%= m.monto %></p>
+                <p><strong>Válido:</strong> <%= m.valido %></p>
+            </div>
+        <% }); %>
+
+
+        <!-- SECCIÓN ANTECEDENTES -->
+        <h2 class="section-title">Antecedentes</h2>
+
+        <% if (antecedentes.length === 0) { %>
+            <p class="empty">No se registran antecedentes.</p>
+        <% } %>
+
+        <% antecedentes.forEach(a => { %>
+            <div class="exp-card">
+                <p><strong>Carabinero:</strong> <span class="carabinero-name"><%= a.carabinero %></span></p>
+                <p><strong>Nombre:</strong> <%= a.nombre %> <%= a.apellido %></p>
+                <p><strong>RUT:</strong> <%= a.rut %></p>
+                <p><strong>Artículo:</strong> <%= a.articulo %></p>
+                <p><strong>Monto:</strong> $<%= a.monto %></p>
+                <p><strong>Válido:</strong> <%= a.valido %></p>
+            </div>
+        <% }); %>
+
+
+        <!-- SECCIÓN AMONESTACIONES -->
+        <h2 class="section-title">Amonestaciones</h2>
+
+        <% if (amonestaciones.length === 0) { %>
+            <p class="empty">No se registran amonestaciones.</p>
+        <% } %>
+
+        <% amonestaciones.forEach(x => { %>
+            <div class="exp-card">
+                <p><strong>Motivo:</strong> <%= x.motivo %></p>
+                <p><strong>Carabinero:</strong> <span class="carabinero-name"><%= x.carabinero %></span></p>
+                <p><strong>Fecha:</strong> <%= x.fecha %></p>
+            </div>
+        <% }); %>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Multas</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body class="dashboard-body">
+
+<header class="nav-header">
+    <div class="nav-left">
+        <img src="/img/logo.png" class="nav-logo">
+        <span class="nav-role">Administrador: <b><%= admin ? admin.usuario : "" %></b></span>
+    </div>
+    <a href="/logout" class="logout-btn">Cerrar Sesión</a>
+</header>
+
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">Lista de Multas</h1>
+    <p class="dashboard-subtitle">Historial completo de multas registradas</p>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>RUT</th>
+                <th>Artículo</th>
+                <th>Monto</th>
+                <th>Válido</th>
+                <th>Carabinero</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% multas.forEach(m => { %>
+                <tr>
+                    <td><%= m.id %></td>
+                    <td><%= m.usuario %></td>
+                    <td><%= m.nombre %> <%= m.apellido %></td>
+                    <td><%= m.rut %></td>
+                    <td><%= m.articulo %></td>
+                    <td>$<%= m.monto %></td>
+                    <td><%= m.valido %></td>
+                    <td><%= m.carabinero %></td>
+
+                    <td>
+                        <a class="btn-edit" href="/admin/editar_multa/<%= m.id %>">Editar</a>
+                        <a class="btn-delete" href="/admin/eliminar_multa/<%= m.id %>">Eliminar</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

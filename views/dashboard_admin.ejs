@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administrador | Carabineros RP</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- NAV SUPERIOR -->
+<header class="nav-header">
+    <div class="nav-left">
+        <img src="/img/logo.png" class="nav-logo">
+        <span class="nav-role">
+            Administrador: <b><%= admin.usuario %></b>
+        </span>
+    </div>
+    <a href="/logout" class="logout-btn">Cerrar Sesión</a>
+</header>
+
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">Panel de Administrador</h1>
+    <p class="dashboard-subtitle">Opciones avanzadas del sistema</p>
+
+    <div class="dashboard-grid">
+
+        <!-- Crear Funcionario -->
+        <div class="dash-card admin" onclick="location.href='/admin/crear_funcionario'">
+            <div class="dash-icon">➕</div>
+            <h3 class="dash-title">Crear Funcionario</h3>
+            <p class="dash-desc">Agregar nuevo personal autorizado</p>
+        </div>
+
+        <!-- Lista de Funcionarios -->
+        <div class="dash-card admin" onclick="location.href='/admin/lista_funcionarios'">
+            <div class="dash-icon">👮‍♂️</div>
+            <h3 class="dash-title">Lista de Funcionarios</h3>
+            <p class="dash-desc">Administrar personal registrado</p>
+        </div>
+
+        <!-- Lista de Multas -->
+        <div class="dash-card admin" onclick="location.href='/admin/lista_multas'">
+            <div class="dash-icon">📜</div>
+            <h3 class="dash-title">Lista de Multas</h3>
+            <p class="dash-desc">Historial completo de infracciones</p>
+        </div>
+
+        <!-- Lista de Antecedentes -->
+        <div class="dash-card admin" onclick="location.href='/admin/lista_antecedentes'">
+            <div class="dash-icon">📘</div>
+            <h3 class="dash-title">Lista de Antecedentes</h3>
+            <p class="dash-desc">Registro detallado de antecedentes</p>
+        </div>
+<div class="dash-card admin" onclick="location.href='/admin/lista_amonestaciones'">
+    <div class="dash-icon">⚠️</div>
+    <h3 class="dash-title">Lista de Amonestaciones</h3>
+    <p class="dash-desc">Revisar / Eliminar amonestaciones</p>
+</div>
+
+    </div>
+    
+</div>
+
+</body>
+</html>

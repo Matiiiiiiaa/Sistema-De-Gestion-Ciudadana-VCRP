@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Antecedentes</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body class="dashboard-body">
+
+<header class="nav-header">
+    <div class="nav-left">
+        <img src="/img/logo.png" class="nav-logo">
+        <span class="nav-role">
+            Administrador: <b><%= admin ? admin.usuario : "" %></b>
+        </span>
+    </div>
+    <a href="/logout" class="logout-btn">Cerrar Sesión</a>
+</header>
+
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">Lista de Antecedentes</h1>
+    <p class="dashboard-subtitle">Registros policiales ingresados al sistema</p>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>RUT</th>
+                <th>Artículo</th>
+                <th>Monto</th>
+                <th>Válido</th>
+                <th>Carabinero</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% if (antecedentes.length === 0) { %>
+                <tr>
+                    <td colspan="9" class="empty-row">No hay antecedentes registrados.</td>
+                </tr>
+            <% } %>
+
+            <% antecedentes.forEach(a => { %>
+                <tr>
+                    <td><%= a.id %></td>
+                    <td><%= a.usuario %></td>
+                    <td><%= a.nombre %> <%= a.apellido %></td>
+                    <td><%= a.rut %></td>
+                    <td><%= a.articulo %></td>
+                    <td>$<%= a.monto %></td>
+                    <td><%= a.valido %></td>
+                    <td><%= a.carabinero %></td>
+
+                    <td>
+                        <a class="btn-edit" href="/admin/editar_antecedente/<%= a.id %>">Editar</a>
+                        <a class="btn-delete" href="/admin/eliminar_antecedente/<%= a.id %>"
+                           onclick="return confirm('¿Seguro que deseas eliminar este antecedente?')">
+                           Eliminar
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

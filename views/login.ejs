@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión Ciudadana | VC:RP</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <img src="/img/logo.png" class="login-logo">
+
+        <h1 class="login-title">Sistema de Gestión Ciudadana</h1>
+        <p class="login-subtitle">Carabineros de Chile
+          VC:RP
+        </p>
+
+        <div class="login-buttons">
+
+            <button class="btn btn-funcionario" onclick="location.href='/login_funcionario'">
+                Ingresar como Funcionario
+                <span class="btn-sub">Panel Administrativo</span>
+            </button>
+
+            <button class="btn btn-ciudadano" onclick="location.href='/auth/discord'">
+                Ingresar como Ciudadano
+                <span class="btn-sub">Consultar Expediente</span>
+            </button>
+
+            <button class="btn btn-admin" onclick="location.href='/login_admin'">
+                Administrador
+                <span class="btn-sub">Control Total</span>
+            </button>
+
+        </div>
+    </div>
+
+</body>
+</html>

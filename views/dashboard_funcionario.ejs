@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Funcionario</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body class="dashboard-body">
+
+<header class="nav-header">
+    <div class="nav-left">
+        <img src="/img/logo.png" class="nav-logo">
+        <span class="nav-role">
+            Funcionario: <b><%= funcionario.usuario %></b>
+        </span>
+    </div>
+
+    <a href="/logout" class="logout-btn">Cerrar Sesión</a>
+</header>
+
+
+
+<div class="dashboard-container">
+    
+    <h1 class="dashboard-title">Panel de Funcionario</h1>
+    <p class="dashboard-subtitle">Opciones operativas</p>
+
+    <div class="dashboard-grid">
+
+        <!-- Registrar Multa -->
+        <a class="dash-card" href="/funcionario/registrar_multa">
+            <div class="dash-icon">📄</div>
+            <div class="dash-title">Registrar Multa</div>
+            <div class="dash-desc">Ingresar multas a ciudadanos</div>
+        </a>
+
+        <!-- Registrar Antecedente -->
+        <a class="dash-card" href="/funcionario/registrar_antecedente">
+            <div class="dash-icon">📂</div>
+            <div class="dash-title">Registrar Antecedente</div>
+            <div class="dash-desc">Ingresar antecedentes policiales</div>
+        </a>
+
+        <!-- Registrar Amonestación -->
+        <a class="dash-card" href="/funcionario/registrar_amonestacion">
+            <div class="dash-icon">⚠️</div>
+            <div class="dash-title">Registrar Amonestación</div>
+            <div class="dash-desc">Advertencias menores</div>
+        </a>
+
+        <!-- Buscar Amonestación -->
+        <a class="dash-card" href="/funcionario/buscar_amonestacion">
+            <div class="dash-icon">🔍</div>
+            <div class="dash-title">Buscar Amonestación</div>
+            <div class="dash-desc">Consultar advertencias previas</div>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

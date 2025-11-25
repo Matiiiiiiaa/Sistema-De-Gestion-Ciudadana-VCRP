@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consultar Expediente</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body>
+  <img src="/img/logo.png" class="logo">
+
+  <div class="admin-container">
+
+    <h1 class="admin-title">Consulta de Expediente</h1>
+    <p class="admin-sub">Ingresa tu Discord ID o RUT para ver tu historial.</p>
+
+    <form method="POST" action="/ciudadano/expediente">
+      <input type="text" name="id" placeholder="Discord ID o RUT" class="input" required>
+      <button class="btn btn-funcionario" type="submit">Ver expediente</button>
+    </form>
+
+    <a href="/" class="back-link">Volver</a>
+  </div>
+</body>
+</html>

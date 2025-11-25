@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Funcionarios Registrados</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body class="dashboard-body">
+
+<header class="nav-header">
+    <div class="nav-left">
+        <img src="/img/logo.png" class="nav-logo">
+        <span class="nav-role">Administrador: <b><%= admin ? admin.usuario : "Admin" %></b></span>
+    </div>
+    <a href="/logout" class="logout-btn">Cerrar Sesión</a>
+</header>
+
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">Funcionarios Registrados</h1>
+    <p class="dashboard-subtitle">Listado completo del personal autorizado</p>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% funcionarios.forEach(f => { %>
+                <tr>
+                    <td><%= f.id %></td>
+                    <td><%= f.usuario %></td>
+                    <td>
+                        <a class="btn-delete" href="/admin/eliminar_funcionario/<%= f.id %>">
+                            Eliminar
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

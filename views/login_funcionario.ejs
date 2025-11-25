@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingreso Funcionario | Carabineros RP</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body class="login-body">
+
+    <div class="login-container small">
+
+        <img src="/img/logo.png" class="login-logo">
+
+        <h1 class="login-title">Ingreso de Funcionario</h1>
+        <p class="login-subtitle">Acceso exclusivo del personal</p>
+
+        <% if (error) { %>
+            <div class="alert alert-error"><%= error %></div>
+        <% } %>
+
+        <form method="POST" class="login-form">
+
+            <label class="input-label">Usuario</label>
+            <input type="text" name="usuario" class="input" required>
+
+            <label class="input-label">Contraseña</label>
+            <input type="password" name="password" class="input" required>
+
+            <button class="btn btn-funcionario-full">Ingresar</button>
+
+        </form>
+
+        <div class="back-area">
+            <a href="/" class="back-link">⬅ Volver al inicio</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

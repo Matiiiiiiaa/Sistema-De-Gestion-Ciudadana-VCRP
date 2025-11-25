@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Amonestaciones | Carabineros RP</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body class="dashboard-body">
+
+<header class="nav-header">
+    <div class="nav-left">
+        <img src="/img/logo.png" class="nav-logo">
+        <span class="nav-role">Funcionario: <b><%= funcionario.usuario %></b></span>
+    </div>
+    <a href="/dashboard_funcionario" class="logout-btn">Volver</a>
+</header>
+
+<div class="func-form">
+
+    <h2>Buscar Amonestaciones</h2>
+    <p class="form-subtitle">Ingrese el nombre del ciudadano para consultar su historial</p>
+
+    <% if (error) { %>
+        <div class="error-box"><%= error %></div>
+    <% } %>
+
+    <form method="POST">
+
+        <label>Usuario (Discord)</label>
+        <input type="text" name="usuario" class="input" placeholder="Ej: PepitoRP" required>
+
+        <button class="btn-funcionario" type="submit">Buscar</button>
+
+    </form>
+
+    <% if (resultados) { %>
+        <div class="results-section">
+
+            <h2 class="results-title">Resultados</h2>
+
+            <% if (resultados.length === 0) { %>
+                <p class="empty">No se encontraron amonestaciones para este usuario.</p>
+            <% } %>
+
+            <% resultados.forEach(a => { %>
+                <div class="exp-card">
+                    <p><strong>Usuario:</strong> <%= a.usuario %></p>
+                    <p><strong>Motivo:</strong> <%= a.motivo %></p>
+                    <p><strong>Carabinero:</strong> <span class="carabinero-name"><%= a.carabinero %></span></p>
+                    <p><strong>Fecha:</strong> <%= a.fecha %></p>
+                </div>
+            <% }); %>
+
+        </div>
+    <% } %>
+
+</div>
+
+</body>
+</html>

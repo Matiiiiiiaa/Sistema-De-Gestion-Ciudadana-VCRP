@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Amonestación | Carabineros RP</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+<header class="nav-header">
+    <div class="nav-left">
+        <img src="/img/logo.png" class="nav-logo">
+        <span class="nav-role">Funcionario: <b><%= funcionario.usuario %></b></span>
+    </div>
+    <a href="/dashboard_funcionario" class="logout-btn">Volver</a>
+</header>
+
+<div class="func-form">
+
+    <h2>Registrar Amonestación</h2>
+    <p class="form-subtitle">Advertencias menores que no constituyen infracción</p>
+
+    <% if (success) { %>
+        <div class="success-box"><%= success %></div>
+        <a href="/dashboard_funcionario" class="back-link">⬅ Volver</a>
+    <% } else { %>
+
+        <% if (error) { %>
+            <div class="error-box"><%= error %></div>
+        <% } %>
+
+        <form method="POST">
+
+            <label>Usuario (Discord)</label>
+            <input type="text" name="usuario" class="input" placeholder="Ej: PepitoRP" required>
+
+            <label>Motivo de la Amonestación</label>
+            <textarea name="motivo" class="input" placeholder="Describa la razón de la amonestación..." required></textarea>
+
+            <button class="btn-funcionario" type="submit">Registrar Amonestación</button>
+
+        </form>
+
+    <% } %>
+
+</div>
+
+</body>
+</html>

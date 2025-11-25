@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Amonestaciones</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body class="dashboard-body">
+
+<header class="nav-header">
+    <div class="nav-left">
+        <img src="/img/logo.png" class="nav-logo">
+        <span class="nav-role">Administrador: <b><%= admin.usuario %></b></span>
+    </div>
+    <a href="/logout" class="logout-btn">Cerrar Sesión</a>
+</header>
+
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">Lista de Amonestaciones</h1>
+    <p class="dashboard-subtitle">Advertencias registradas por funcionarios</p>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Motivo</th>
+                <th>Carabinero</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% amonestaciones.forEach(a => { %>
+                <tr>
+                    <td><%= a.id %></td>
+                    <td><%= a.usuario %></td>
+                    <td><%= a.motivo %></td>
+                    <td>
+                        <span class="carabinero-name"><%= a.carabinero %></span>
+                    </td>
+                    <td><%= a.fecha %></td>
+                    <td>
+                        <a class="btn-delete" href="/admin/eliminar_amonestacion/<%= a.id %>">
+                            Eliminar
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

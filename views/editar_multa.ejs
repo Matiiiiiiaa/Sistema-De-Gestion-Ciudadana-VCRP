@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Multa</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+
+</head>
+
+<body class="dashboard-body">
+
+<header class="nav-header">
+    <div class="nav-left">
+        <img src="/img/logo.png" class="nav-logo">
+        <span class="nav-role">Administrador: <b><%= admin ? admin.usuario : "Admin" %></b></span>
+    </div>
+    <a href="/logout" class="logout-btn">Cerrar Sesión</a>
+</header>
+
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">Editar Multa</h1>
+
+    <form method="POST" class="form-box">
+
+        <label>Usuario</label>
+        <input type="text" name="usuario" value="<%= multa.usuario %>" required>
+
+        <label>Nombre</label>
+        <input type="text" name="nombre" value="<%= multa.nombre %>" required>
+
+        <label>Apellido</label>
+        <input type="text" name="apellido" value="<%= multa.apellido %>" required>
+
+        <label>RUT</label>
+        <input type="text" name="rut" value="<%= multa.rut %>" required>
+
+        <label>Artículo</label>
+        <input type="text" name="articulo" value="<%= multa.articulo %>" required>
+
+        <label>Monto</label>
+        <input type="number" name="monto" value="<%= multa.monto %>" required>
+
+        <label>Válido</label>
+        <select name="valido">
+            <option <%= multa.valido === "Sí" ? "selected" : "" %>>Sí</option>
+            <option <%= multa.valido === "No" ? "selected" : "" %>>No</option>
+        </select>
+
+        <button class="btn-admin-full">Guardar Cambios</button>
+    </form>
+
+</div>
+
+</body>
+</html>
